@@ -241,5 +241,8 @@ Repeat with `user.email`.
 .
 ├── Dockerfile     # Image definition: Debian + tools + Claude Code
 ├── ReadMe.md      # This file
-└── .gitignore     # Keeps the local config folder (.claude-home/) out of git
+├── .gitignore     # Keeps .claude-home/ and projects/ out of git
+└── projects/      # Other git repositories (ignored by this repository)
 ```
+
+> **Note:** `projects/` is meant for other, independent git repositories: clone or create them there. Each keeps its own history and remote, and because the whole folder is listed in `.gitignore`, nothing inside it is ever committed to this repository.
