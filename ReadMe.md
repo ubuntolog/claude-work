@@ -71,7 +71,7 @@ podman build -t safer-claudecode .
 Bind-mount sources must exist before the container starts:
 
 ```bash
-mkdir -p "$HOME/github/claude-code/project"   # the code Claude Code works on
+mkdir -p "$HOME/github/claude-work/projects"   # the code Claude Code works on
 mkdir -p "$HOME/.claude-container"            # login, settings and history
 ```
 
@@ -84,7 +84,7 @@ podman run -it --rm \
   --user "$(id -u):$(id -g)" \
   -e HOME=/tmp/claude-home \
   -e CLAUDE_CONFIG_DIR=/tmp/claude-home \
-  --mount type=bind,source="$HOME/github/claude-code/project",target=/workspace \
+  --mount type=bind,source="$HOME/github/claude-work/projects",target=/workspace \
   --mount type=bind,source="$HOME/.claude-container",target=/tmp/claude-home \
   -w /workspace \
   safer-claudecode
